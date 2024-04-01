@@ -8,6 +8,8 @@
 #include "image.h"
 #include "pass.h"
 
+bool displayText = true;
+bool before = true;
 const char* ntpServer = "pool.ntp.org";
 const long gmtOffset_sec = 9 * 3600;
 const short daylightOffset_sec = 0;
@@ -16,7 +18,7 @@ const unsigned char QR_CODE_VERSION = 6;
 const unsigned char SPEAKER_VOLUME = 225;
 const short SPEAKER_FREQUENCY = 4261;
 const unsigned char SPEAKER_DURATION = 100;
-const short DISPLAY_DELAY = 1000;
+const short DISPLAY_DELAY = 5000;
 
 MFRC522_I2C mfrc522(0x28, 0x3C, &Wire);
 short Rotation = 0;
@@ -41,9 +43,23 @@ void setup() {
 }
 
 void loop() {
+	M5.update();
+
+    if (M5.BtnA.wasReleased()) {
+		before = displayText;
+        displayText = !displayText;
+		M5.Lcd.fillScreen(BLACK);
+    }
+
     display_rotation_vertical();
-    display_image();
-    display_text(" Please\n\n put\n\n your\n\n card\n");
+    
+    if (displayText) {
+    	display_image();
+        display_text(" Please\n\n put\n\n your\n\n card\n");
+    } else {
+    	display_image();
+        display_text(" get\n\n your\n\n card\n\n uid\n\n");
+    }
     if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) {
         delay(200);
         return;
@@ -51,7 +67,11 @@ void loop() {
     String uid = get_uid();
     M5.Speaker.tone(SPEAKER_FREQUENCY, SPEAKER_DURATION, 1);
     String getUrl = serverName + uid;
-    display_qr_code_and_time(getUrl);
+	if (displayText) {
+		display_qr_code_and_time(getUrl);
+    } else {
+    	display_uid_and_time(uid);  // uidを引数として渡す
+    }
     delay(DISPLAY_DELAY);
     M5.Lcd.fillScreen(BLACK);
 }
@@ -84,6 +104,20 @@ void display_text(const char* text) {
     M5.Lcd.setCursor(0, 20);
     M5.Lcd.setTextSize(3);
     M5.Lcd.println(text);
+}
+
+void display_uid_and_time(String uid) {
+    struct tm timeinfo;
+    if (!getLocalTime(&timeinfo)) {
+        M5.Lcd.println("Failed to obtain time");
+        return;
+    }
+    M5.Lcd.fillScreen(BLACK);
+    M5.Lcd.setTextSize(2);
+    M5.Lcd.setCursor(0, 20);
+    M5.Lcd.println(uid);
+    M5.Lcd.setCursor(0, 150);
+    M5.Lcd.printf("%04d-%02d-%02d %02d:%02d:%02d\n", timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday, timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }
 
 void display_qr_code_and_time(String url) {
