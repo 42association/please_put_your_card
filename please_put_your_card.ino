@@ -52,10 +52,11 @@ void loop()
     }
     String uid = get_uid();
     M5.Speaker.begin();
-    M5.Speaker.tone(3000, 1000, 255);
+    M5.Speaker.setVolume(225);
+    M5.Speaker.tone(4261, 100, 1);
     String getUrl = String(serverName) + uid;
     display_time(getUrl);
-    delay(10000); // QRコードを表示する時間(ミリ秒)
+    delay(1000); // QRコードを表示する時間(ミリ秒)
     M5.Lcd.fillScreen(BLACK);
 }
 
