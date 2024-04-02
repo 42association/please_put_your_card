@@ -115,7 +115,7 @@ void display_uid_and_time(String uid) {
     M5.Lcd.fillScreen(BLACK);
     M5.Lcd.setTextSize(2);
     M5.Lcd.setCursor(0, 20);
-    M5.Lcd.println(uid);
+    M5.Lcd.drawCentreString(uid, M5.Lcd.width() / 2, M5.Lcd.height() / 4, 1);
     M5.Lcd.setCursor(0, 150);
     M5.Lcd.printf("%04d-%02d-%02d %02d:%02d:%02d\n", timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday, timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }
