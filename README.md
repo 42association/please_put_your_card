@@ -2,6 +2,7 @@
 
 ## 概要
 M5StickCPlus2でNFCカードのUIDをサーバーに送信するためのQRコードを表示します。
+(https://github.com/42association/please_put_your_card/assets/135298886/81bf2243-7abb-4e85-882a-13a4d248f050)
 
 ## ハードウェア要件
 - [M5StickCPlus2](https://www.switch-science.com/products/9350)
@@ -17,7 +18,7 @@ M5StickCPlus2でNFCカードのUIDをサーバーに送信するためのQRコ�
 
 1. **Arduino IDEセットアップ：** [Arduino IDE](https://www.arduino.cc/en/software)をインストール
 
-2. **VScodeをセットアップ:** [VScode](https://code.visualstudio.com/)をインストールします。
+2. **VScodeをセットアップ：** [VScode](https://code.visualstudio.com/)をインストールします。
 
 3. **PlatformIOセットアップ：** VScodeの拡張機能である[platformio-ide](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide)をインストール
 
