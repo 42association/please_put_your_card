@@ -6,23 +6,9 @@
 #include <M5Unified.h>
 #include <TFT_eSPI.h>
 
-#include "lib/image.h"
-#include "lib/secrets.h"
-
-bool displayText = true;
-bool before = true;
-const char *ntpServer = "pool.ntp.org";
-const long gmtOffset_sec = 9 * 3600;
-const short daylightOffset_sec = 0;
-const unsigned char QR_CODE_SIZE = 135;
-const unsigned char QR_CODE_VERSION = 6;
-const unsigned char SPEAKER_VOLUME = 225;
-const short SPEAKER_FREQUENCY = 4261;
-const unsigned char SPEAKER_DURATION = 100;
-const short DISPLAY_DELAY = 5000;
+#include "lib/please_put_your_card.h"
 
 MFRC522_I2C mfrc522(0x28, 0x3C, &Wire);
-short Rotation = 0;
 
 void setup()
 {
@@ -56,16 +42,11 @@ void loop()
 		M5.Lcd.fillScreen(BLACK);
 	}
 	display_rotation_vertical();
+	display_image();
 	if (displayText)
-	{
-		display_image();
 		display_text(" Please\n\n put\n\n your\n\n card\n");
-	}
 	else
-	{
-		display_image();
 		display_text(" get\n\n your\n\n card\n\n uid\n\n");
-	}
 	if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial())
 	{
 		delay(200);
