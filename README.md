@@ -13,11 +13,13 @@ M5StickCPlus2でNFCカードのUIDをサーバーに送信するためのQRコ�
 - [platformio-ide](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide)
 
 ## インストール
-1. **Arduino IDEセットアップ：** Arduino IDEをインストール
+1. **ドライバーをインストール：** [Driver MacOS](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/drivers/CH9102_VCP_MacOS_v1.7.zip)をインストール
 
-2. **VScodeをセットアップ:** VScodeをインストールします。
+1. **Arduino IDEセットアップ：** [Arduino IDE](https://www.arduino.cc/en/software)をインストール
 
-3. **PlatformIOセットアップ：** VScodeの拡張機能であるPlatformIO IDEをインストール
+2. **VScodeをセットアップ:** [VScode](https://code.visualstudio.com/)をインストールします。
+
+3. **PlatformIOセットアップ：** VScodeの拡張機能である[platformio-ide](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide)をインストール
 
 ## 設定
 - **WiFiセットアップ：** `secrets.h`ファイルにWiFiの認証情報を記入
