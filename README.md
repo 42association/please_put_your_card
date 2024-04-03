@@ -2,7 +2,7 @@
 
 ## 概要
 M5StickCPlus2でNFCカードのUIDをサーバーに送信するためのQRコードを表示します。
-(https://github.com/42association/please_put_your_card/assets/135298886/81bf2243-7abb-4e85-882a-13a4d248f050)
+![image](https://github.com/42association/please_put_your_card/assets/135298886/81bf2243-7abb-4e85-882a-13a4d248f050)
 
 ## ハードウェア要件
 - [M5StickCPlus2](https://www.switch-science.com/products/9350)
