@@ -1,5 +1,7 @@
 # please_put_your_card
 
+<img src="https://github.com/kkaneta42/please_put_your_card/assets/135298886/b0a8457c-071e-4ee6-995f-e2fdd67354b6">
+
 ## 概要
 M5StickCPlus2でNFCカードのUIDをサーバーに送信するためのQRコードを表示します。
 
