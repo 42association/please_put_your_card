@@ -64,3 +64,20 @@ void display_qr_code_and_time(String url)
 	M5.Lcd.setTextSize(2);
 	M5.Lcd.printf("%04d-%02d-%02d %02d:%02d:%02d\n", timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday, timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }
+
+void post_activity(String uid) {
+    HTTPClient http;
+    http.begin(String(serverName) + "/activities");
+    http.addHeader("Content-Type", "application/json");
+    String postData = "{\"mac\": \"" + String(macAdr) + "\", \"uid\": \"" + uid + "\"}";
+    int statusCode = http.POST(postData);
+	M5.Lcd.println(postData);
+    if (statusCode == 200) {
+        String response = http.getString();
+        // M5.Lcd.println("Response: " + response);
+        // M5.Lcd.println(message);
+    } else {
+        M5.Lcd.println("Error: " + String(statusCode));
+    }
+    http.end();
+}
