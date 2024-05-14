@@ -63,7 +63,7 @@ void loop()
 	}
 	String uid = get_uid();
 	M5.Speaker.tone(SPEAKER_FREQUENCY, SPEAKER_DURATION, 1);
-	String getUrl = serverName + uid;
+	String getUrl = serverName + "/new?uid=" + uid;
 	if (displayText)
 	{
 		display_qr_code_and_time(getUrl);
