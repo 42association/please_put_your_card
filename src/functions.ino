@@ -71,7 +71,6 @@ void post_activity(String uid) {
     http.addHeader("Content-Type", "application/json");
     String postData = "{\"mac\": \"" + String(macAdr) + "\", \"uid\": \"" + uid + "\"}";
     int statusCode = http.POST(postData);
-	M5.Lcd.println(postData);
     if (statusCode == 200) {
         String response = http.getString();
         // M5.Lcd.println("Response: " + response);
