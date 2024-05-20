@@ -14,7 +14,7 @@ const unsigned char SPEAKER_DURATION = 100;
 const short DISPLAY_DELAY = 5000;
 short Rotation = 0;
 
-#include "lib/image.h"
-#include "lib/secrets.h"
+#include "image.h"
+#include ".secrets.h"
 
 #endif

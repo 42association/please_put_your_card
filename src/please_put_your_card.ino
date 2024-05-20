@@ -6,7 +6,7 @@
 #include <qrcode.h>
 #include <M5Unified.h>
 #include <TFT_eSPI.h>
-#include "lib/please_put_your_card.h"
+#include "../lib/please_put_your_card.h"
 
 MFRC522_I2C mfrc522(0x28, 0x3C, &Wire);
 
