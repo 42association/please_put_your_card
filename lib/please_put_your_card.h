@@ -15,6 +15,6 @@ const short DISPLAY_DELAY = 5000;
 short Rotation = 0;
 
 #include "image.h"
-#include ".secrets.h"
+#include "secrets.h"
 
 #endif
