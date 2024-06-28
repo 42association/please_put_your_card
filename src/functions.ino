@@ -69,6 +69,7 @@ void post_activity(String uid) {
     HTTPClient http;
     http.begin(String(serverName) + "/activities");
     http.addHeader("Content-Type", "application/json");
+	http.addHeader("Authorization", "Bearer " + String(apiKey));
     String postData = "{\"mac\": \"" + String(macAdr) + "\", \"uid\": \"" + uid + "\"}";
     int statusCode = http.POST(postData);
     if (statusCode == 200) {

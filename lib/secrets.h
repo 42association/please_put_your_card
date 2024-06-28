@@ -4,5 +4,6 @@
 const char* ssid = "";
 const char* password = "";
 const char* serverName = "";
+const char* apiKey = "";
 
 #endif
